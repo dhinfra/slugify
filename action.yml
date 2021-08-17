@@ -1,21 +1,12 @@
-name: 'Hello World'
-description: 'Greet someone'
+name: 'slugify'
+description: 'slugify one input'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  slugify_input:  # id of input
+    description: 'what to slugify'
     required: true
-    default: 'World'
-outputs:
-  random-number:
-    description: "Random number"
-    value: ${{ steps.random-number-generator.outputs.random-id }}
+    default: 'test/slug'
 runs:
   using: "composite"
   steps:
-    - run: echo Hello ${{ inputs.who-to-greet }}.
-      shell: bash
-    - id: random-number-generator
-      run: echo "::set-output name=random-id::$(echo $RANDOM)"
-      shell: bash
     - run: ${{ github.action_path }}/slugify.sh ${{ inputs.who-to-greet }}
       shell: bash
