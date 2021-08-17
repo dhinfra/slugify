@@ -8,5 +8,5 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: ${{ github.action_path }}/slugify.sh ${{ inputs.who-to-greet }}
+    - run: ${{ github.action_path }}/slugify.sh ${{ inputs.slugify_input }}
       shell: bash
