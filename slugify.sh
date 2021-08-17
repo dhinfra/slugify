@@ -1,1 +1,1 @@
-test
+echo "RECEIVED=$1" >> $GITHUB_ENV
